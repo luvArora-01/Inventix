@@ -4,12 +4,15 @@
 
 html {
   min-width: 320px;
-  background: #f5f7fb;
+  background: #eef3f8;
 }
 
 body {
   margin: 0;
   color: #172234;
+  background:
+    linear-gradient(180deg, rgba(42, 199, 168, 0.08), rgba(245, 247, 251, 0) 280px),
+    #f5f7fb;
   font-family:
     Inter,
     ui-sans-serif,
@@ -26,6 +29,17 @@ select {
   font: inherit;
 }
 
+button {
+  transition:
+    filter 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
 button:hover {
   filter: brightness(0.96);
+}
+
+button:active {
+  transform: translateY(1px);
 }

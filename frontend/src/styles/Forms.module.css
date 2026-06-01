@@ -4,6 +4,7 @@
   background: #ffffff;
   border: 1px solid #dfe5ee;
   border-radius: 8px;
+  box-shadow: 0 14px 32px rgba(19, 32, 50, 0.06);
 }
 
 .formGrid {
@@ -33,6 +34,18 @@
   color: #172234;
   background: #ffffff;
   font: inherit;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.form input:focus,
+.form select:focus,
+.itemRow input:focus,
+.itemRow select:focus {
+  border-color: #1e6bff;
+  box-shadow: 0 0 0 4px rgba(30, 107, 255, 0.12);
+  outline: 0;
 }
 
 .actions,
@@ -65,6 +78,7 @@
   background: #1e6bff;
   font-weight: 800;
   cursor: pointer;
+  box-shadow: 0 10px 18px rgba(30, 107, 255, 0.18);
 }
 
 .form button:disabled {

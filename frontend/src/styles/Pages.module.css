@@ -13,7 +13,7 @@
 .pageHeader h2 {
   margin: 0;
   color: #182536;
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .pageHeader p {
@@ -28,10 +28,21 @@
 }
 
 .statCard {
+  position: relative;
+  overflow: hidden;
   padding: 22px;
   border: 1px solid #dfe5ee;
   border-radius: 8px;
   background: #ffffff;
+  box-shadow: 0 14px 32px rgba(19, 32, 50, 0.07);
+}
+
+.statCard::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, #2ac7a8, #1e6bff);
+  content: "";
 }
 
 .statCard span {
@@ -53,6 +64,7 @@
   border: 1px solid #dfe5ee;
   border-radius: 8px;
   background: #ffffff;
+  box-shadow: 0 14px 32px rgba(19, 32, 50, 0.06);
 }
 
 .detailsPanel {
@@ -81,6 +93,7 @@
   background: #1e6bff;
   font-weight: 800;
   cursor: pointer;
+  box-shadow: 0 10px 18px rgba(30, 107, 255, 0.16);
 }
 
 .detailsPanel ul {
@@ -101,13 +114,21 @@ td {
 
 th {
   color: #4f6075;
-  background: #f8fafc;
+  background: #f3f7fb;
   font-size: 13px;
   text-transform: uppercase;
 }
 
 td {
   color: #25364b;
+}
+
+tbody tr {
+  transition: background 140ms ease;
+}
+
+tbody tr:hover {
+  background: #f8fbff;
 }
 
 .rowActions {
@@ -126,21 +147,25 @@ td {
   margin-bottom: 16px;
   border-radius: 8px;
   font-weight: 800;
+  border: 1px solid transparent;
 }
 
 .success {
   color: #0a6b58;
   background: #dff7f0;
+  border-color: #b9ece0;
 }
 
 .error {
   color: #9f2626;
   background: #ffe6e6;
+  border-color: #ffcaca;
 }
 
 .notice {
   color: #33445a;
   background: #eef4fb;
+  border-color: #dce8f4;
 }
 
 @media (max-width: 1050px) {
