@@ -1,0 +1,47 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: inventix-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-inventix_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-inventix_password}
+      POSTGRES_DB: ${POSTGRES_DB:-inventix}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-inventix_user} -d ${POSTGRES_DB:-inventix}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+    container_name: inventix-backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://inventix_user:inventix_password@postgres:5432/inventix}
+      CORS_ORIGINS: http://localhost:5173,http://localhost:4173,http://frontend:4173
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
+    container_name: inventix-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:4173"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

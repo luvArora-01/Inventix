@@ -1,0 +1,113 @@
+.sidebar {
+  min-height: 100vh;
+  padding: 24px 18px;
+  background: #132032;
+  color: #ffffff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.brand strong {
+  display: block;
+  font-size: 18px;
+}
+
+.brand small {
+  display: block;
+  margin-top: 3px;
+  color: #b9c7d8;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #2ac7a8;
+  color: #0d1724;
+  font-weight: 800;
+}
+
+.navLinks {
+  display: grid;
+  gap: 8px;
+}
+
+.navLink {
+  color: #dce6f3;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.navLink:hover,
+.active {
+  background: #21334a;
+  color: #ffffff;
+}
+
+.navbar {
+  min-height: 92px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #dfe5ee;
+}
+
+.navbar h1 {
+  margin: 0;
+  color: #162335;
+  font-size: 28px;
+}
+
+.kicker {
+  margin: 0 0 4px;
+  color: #607187;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.statusBadge {
+  padding: 9px 12px;
+  border-radius: 999px;
+  color: #0d6f5d;
+  background: #dff7f0;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .brand {
+    margin-bottom: 16px;
+  }
+
+  .navLinks {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .navLink {
+    white-space: nowrap;
+  }
+
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 18px 16px;
+  }
+}
