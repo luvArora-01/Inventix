@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: inventix-api
+    runtime: docker
+    plan: free
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: inventix-db
+          property: connectionString
+      - key: CORS_ORIGINS
+        value: https://inventix.vercel.app
+
+databases:
+  - name: inventix-db
+    plan: free
